@@ -1,0 +1,50 @@
+<html ng-app="myPoint">
+<head>
+	<title>MY POINT</title>
+	<script type="text/javascript" src='node_modules/angular/angular.min.js'></script>
+	
+	<script src="node_modules/angular-local-storage/dist/angular-local-storage.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script type="text/javascript" src='index.js'></script>
+<style>
+	.top{
+		margin-top: 15px;
+	}
+
+	.res{
+		position: absolute;
+		width:900px;
+		float: left;
+    border:1px #000 solid;
+    left:20px;
+    top:50px;
+    background: #FFF;
+
+	}
+
+</style>
+
+</head>
+<body ng-controller="pointController">
+<div class="container-fluid" ng-if="login">
+  <div class="top row">
+    <div class="col-md-12"><input type="text" class="form-control search" ng-init="keyword" ng-model="keyword" placeholder="Search" ng-change="searchFB(keyword)"></div>
+  </div>
+    <div ng-repeat="data in people"  class="top row">
+ 	 <div class="col-md-3"><img src="https://graph.facebook.com/{{data.id}}/picture" alt="..." class="img-thumbnail">{{data.name}}</div>
+  <div class="col-md-3"><button ng-click="changePoint($index,'+')"  type="button" class="btn btn-primary btn-lg">+</button></div>
+  <div class="col-md-3"><button ng-click="changePoint($index,'-')"  type="button" class="btn btn-primary btn-lg">-</button></div>
+   <div class="col-md-3">{{data.point}}</div>
+  </div>
+<div class="res">
+<div ng-repeat=" dataa in searchData" ng-click="selectPeople(dataa)" class="row" style="border:1px #000 solid;">
+ <div class="col-md-3"><img src="https://graph.facebook.com/{{dataa.id}}/picture" class="img-thumbnail"></div>
+  <div class="col-md-3">{{dataa.name}}</div>
+
+
+</div>
+</div>
+</div>
+<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false" ng-if="!login"></div>
+</body>
+</html>
