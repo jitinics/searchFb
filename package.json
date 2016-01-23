@@ -1,11 +1,26 @@
 {
-  "name": "scorefb",
+  "name": "searchFb",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "description": "``` $ sudo npm install -g http-server $ http-server ```",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/n9ti/searchFb.git"
+  },
+  "standard": {
+    "globals": ["angular", "FB"]
+  },
+  "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/n9ti/searchFb/issues"
+  },
+  "homepage": "https://github.com/n9ti/searchFb#readme",
+  "devDependencies": {
+    "standard": "^5.4.1"
+  }
 }
